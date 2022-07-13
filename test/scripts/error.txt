@@ -1,0 +1,36 @@
+[ERROR] [1657604344.100187]: bad callback: <bound method video_process.imageCallback of <__main__.video_process object at 0x7ff5d5ecb630>>
+Traceback (most recent call last):
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/rospy/topics.py", line 750, in _invoke_callback
+    cb(msg)
+  File "hello.py", line 28, in imageCallback
+    cv_image = bridge.imgmsg_to_cv2(data, "bgr8")
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/cv_bridge/core.py", line 163, in imgmsg_to_cv2
+    dtype, n_channels = self.encoding_to_dtype_with_channels(img_msg.encoding)
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/cv_bridge/core.py", line 99, in encoding_to_dtype_with_channels
+    return self.cvtype2_to_dtype_with_channels(self.encoding_to_cvtype2(encoding))
+  File "/opt/ros/melodic/lib/python2.7/dist-packages/cv_bridge/core.py", line 91, in encoding_to_cvtype2
+    from cv_bridge.boost.cv_bridge_boost import getCvType
+ImportError: dynamic module does not define module export function (PyInit_cv_bridge_boost)
+
+
+뭔소리야?짜증나게뭔소리냐고 
+
+
+catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
+
+
+
+['', '/opt/ros/melodic/lib/python2.7/dist-packages', 
+'/usr/lib/python36.zip',
+ '/usr/lib/python3.6', 
+ '/usr/lib/python3.6/lib-dynload',
+  '/home/max/.local/lib/python3.6/site-packages', 
+  '/usr/local/lib/python3.6/dist-packages',
+   '/usr/lib/python3/dist-packages']
+
+
+sudo apt-get install python-catkin-tools python3-dev python3-catkin-pkg-modules python3-numpy python3-yaml ros-melodic-cv-bridge
+
+catkin config -DPYTHON_EXECUTABLE=/usr/bin/python3 
+-DPYTHON_INCLUDE_DIR=/usr/include/python3.6m 
+-DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
